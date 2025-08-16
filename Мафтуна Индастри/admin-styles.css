@@ -1,0 +1,456 @@
+
+:root {
+  --dark: #002B52; 
+  --accent: #0b5fa8; 
+  --muted: #6c7580; 
+  --bg: #f4f6fb; 
+  --card: #fff;
+  --danger: #e63946; 
+}
+
+
+* {
+  box-sizing: border-box; 
+}
+
+
+body {
+  font-family: Inter, system-ui, Arial, sans-serif; 
+  margin: 0; 
+  background: var(--bg); 
+  color: #122; 
+  line-height: 1.5; 
+}
+
+
+.container {
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+
+.site-header {
+  background: var(--dark); 
+  color: #fff; 
+  position: sticky; 
+  top: 0; 
+  z-index: 30; 
+  box-shadow: 0 6px 18px rgba(11,59,102,0.08); 
+}
+
+
+.header-inner {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 16px; 
+  padding: 18px 24px; 
+}
+
+
+.logo img {
+  height: 160px; 
+  width: auto; 
+}
+
+
+.site-nav {
+  display: flex; 
+  gap: 12px; 
+}
+
+
+.site-nav a {
+  color: #fff; /* Белый цвет текста */
+  text-decoration: none; /* Без подчёркивания */
+  font-weight: 600; /* Средне-жирный шрифт */
+  padding: 8px 10px; /* Внутренние отступы */
+  border-radius: 8px; /* Скругление углов */
+  transition: background 0.2s; /* Плавное изменение фона */
+}
+
+/* Эффект наведения на ссылки навигации */
+.site-nav a:hover {
+  background: rgba(255,255,255,0.08); /* Полупрозрачный белый фон */
+}
+
+/* Главная секция админ-панели */
+.admin-page {
+  margin-top: 20px; /* Отступ сверху */
+  display: grid; /* Сеточная раскладка */
+  gap: 20px; /* Расстояние между секциями */
+}
+
+/* Заголовок админ-панели */
+.admin-page h1 {
+  text-align: center; /* Центрирование текста */
+  font-size: 2rem; /* Размер шрифта */
+  color: var(--dark); /* Тёмно-синий цвет текста */
+}
+
+/* Секции админ-панели */
+.admin-section {
+  background: var(--card); /* Белый фон */
+  padding: 20px; /* Внутренние отступы */
+  border-radius: 14px; /* Скругление углов */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Лёгкая тень */
+  transition: transform 0.2s ease; /* Плавное поднятие при наведении */
+}
+
+/* Эффект наведения на секцию */
+.admin-section:hover {
+  transform: translateY(-3px); /* Поднятие на 3 пикселя */
+}
+
+/* Заголовки в секциях */
+.admin-section h2 {
+  font-size: 1.4rem; /* Размер шрифта */
+  color: var(--accent); /* Ярко-синий цвет */
+  margin-bottom: 12px; /* Отступ снизу */
+  display: flex; /* Гибкое отображение для иконки и текста */
+  align-items: center; /* Выравнивание по центру */
+  gap: 8px; /* Расстояние между иконкой и текстом */
+}
+
+/* Сетка формы */
+.form-grid {
+  display: grid; /* Сеточная раскладка */
+  grid-template-columns: 1fr 1fr; /* Две колонки одинаковой ширины */
+  gap: 14px; /* Расстояние между полями */
+}
+
+/* Предотвращение переполнения */
+.form-grid > * {
+  min-width: 0; /* Запрещает элементам превышать ширину контейнера */
+}
+
+/* Метки полей ввода */
+.form-grid label {
+  display: flex; /* Гибкое отображение */
+  flex-direction: column; /* Вертикальное расположение метки и поля */
+  font-weight: 600; /* Средне-жирный шрифт */
+  font-size: 14px; /* Размер шрифта */
+}
+
+/* Поля ввода, текстовые области и выпадающие списки */
+.admin-section input,
+.admin-section textarea,
+.admin-section select {
+  width: 100%; /* Полная ширина */
+  max-width: 100%; /* Ограничение максимальной ширины */
+  box-sizing: border-box; /* Включает padding и border в размеры */
+  padding: 12px 14px; /* Внутренние отступы */
+  margin-top: 6px; /* Отступ сверху */
+  border: 1px solid #ccc; /* Серая рамка */
+  border-radius: 10px; /* Скругление углов */
+  font-size: 15px; /* Размер шрифта */
+  background: #f9fafb; /* Светлый фон */
+  transition: border-color 0.2s; /* Плавное изменение цвета рамки */
+}
+
+/* Стили при фокусе на поля ввода */
+.admin-section input:focus,
+.admin-section textarea:focus,
+.admin-section select:focus {
+  border-color: var(--accent); /* Ярко-синяя рамка */
+  outline: none; /* Убирает стандартный контур */
+  background: #fff; /* Белый фон */
+  box-shadow: 0 0 0 3px rgba(11, 95, 168, 0.1); /* Тень вокруг поля */
+}
+
+/* Кнопки в админ-панели */
+.admin-section button {
+  background: var(--accent); /* Ярко-синий фон */
+  color: #fff; /* Белый текст */
+  border: none; /* Без рамки */
+  padding: 12px 16px; /* Внутренние отступы */
+  border-radius: 10px; /* Скругление углов */
+  font-size: 16px; /* Размер шрифта */
+  font-weight: 600; /* Средне-жирный шрифт */
+  cursor: pointer; /* Указатель мыши */
+  transition: background 0.2s ease, transform 0.2s ease; /* Плавные изменения фона и масштаба */
+  display: inline-flex; /* Гибкое отображение в строку */
+  align-items: center; /* Выравнивание по центру */
+  gap: 8px; /* Расстояние между иконкой и текстом */
+}
+
+/* Эффект наведения на кнопки */
+.admin-section button:hover {
+  background: #094b87; /* Тёмно-синий фон */
+  transform: scale(1.05); /* Увеличение на 5% */
+}
+
+/* Опасная зона (секция сброса) */
+.danger-zone {
+  border: 1px solid var(--danger); /* Красная рамка */
+}
+
+/* Кнопка в опасной зоне */
+.danger-btn {
+  background: var(--danger) !important; /* Красный фон */
+}
+
+/* Эффект наведения на кнопку сброса */
+.danger-btn:hover {
+  background: #b91c1c !important; /* Тёмно-красный фон */
+}
+
+/* Списки новостей и проектов */
+.admin-list {
+  margin-top: 15px; /* Отступ сверху */
+  display: grid; /* Сеточная раскладка */
+  gap: 10px; /* Расстояние между элементами */
+}
+
+/* Элементы списка */
+.admin-item {
+  padding: 10px 14px; /* Внутренние отступы */
+  background: #f1f5f9; /* Светло-серый фон */
+  border-radius: 8px; /* Скругление углов */
+  display: flex; /* Гибкое отображение */
+  justify-content: space-between; /* Элементы по краям */
+  align-items: center; /* Выравнивание по центру */
+}
+
+/* Кнопки в списке */
+.admin-item button {
+  background: #e11d48; /* Красный фон */
+  padding: 6px 10px; /* Внутренние отступы */
+  font-size: 14px; /* Размер шрифта */
+  border-radius: 6px; /* Скругление углов */
+}
+
+/* Плавающая кнопка админа */
+#adminBtn {
+  position: fixed; /* Фиксированное положение */
+  bottom: 20px; /* Отступ снизу */
+  right: 20px; /* Отступ справа */
+  background: #007BFF; /* Синий фон */
+  color: white; /* Белый цвет иконки */
+  font-size: 24px; /* Размер иконки */
+  padding: 15px; /* Внутренние отступы */
+  border-radius: 50%; /* Круглая форма */
+  cursor: pointer; /* Указатель мыши */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Тень */
+  transition: background 0.3s; /* Плавное изменение фона */
+  z-index: 999; /* Высокий уровень наложения */
+}
+
+/* Эффект наведения на кнопку админа */
+#adminBtn:hover {
+  background: #0056b3; /* Тёмно-синий фон */
+}
+
+/* Альтернативная плавающая кнопка админа */
+#adminFloatBtn {
+  position: fixed; /* Фиксированное положение */
+  right: 20px; /* Отступ справа */
+  bottom: 20px; /* Отступ снизу */
+  width: 56px; /* Ширина кнопки */
+  height: 56px; /* Высота кнопки */
+  border-radius: 50%; /* Круглая форма */
+  border: none; /* Без рамки */
+  background: linear-gradient(135deg, #4b6cb7, #182848); /* Градиентный фон */
+  color: #fff; /* Белый цвет иконки */
+  font-size: 22px; /* Размер иконки */
+  box-shadow: 0 6px 18px rgba(24,40,72,0.3); /* Тень */
+  cursor: pointer; /* Указатель мыши */
+  z-index: 1200; /* Высокий уровень наложения */
+  display: flex; /* Гибкое отображение */
+  align-items: center; /* Центрирование по вертикали */
+  justify-content: center; /* Центрирование по горизонтали */
+}
+
+/* Стили при фокусе на альтернативную кнопку */
+#adminFloatBtn:focus {
+  outline: 3px solid rgba(75,108,183,0.25); /* Контур при фокусе */
+}
+
+/* Модальное окно */
+.modal {
+  position: fixed; /* Фиксированное положение */
+  inset: 0; /* Эквивалентно top:0, left:0, right:0, bottom:0 */
+  display: none; /* Скрыто по умолчанию */
+  align-items: center; /* Центрирование содержимого по вертикали */
+  justify-content: center; /* Центрирование содержимого по горизонтали */
+  z-index: 1300; /* Высокий уровень наложения */
+  background: rgba(0,0,0,0.45); /* Полупрозрачный чёрный фон */
+  padding: 20px; /* Внутренние отступы */
+}
+
+/* Показ модального окна */
+.modal[aria-hidden="false"] {
+  display: flex; /* Отображение как гибкий контейнер */
+}
+
+/* Содержимое модального окна */
+.modal-content {
+  background: #fff; /* Белый фон */
+  max-width: 420px; /* Максимальная ширина */
+  width: 100%; /* Полная ширина контейнера */
+  border-radius: 12px; /* Скругление углов */
+  padding: 20px; /* Внутренние отступы */
+  box-shadow: 0 12px 40px rgba(2,6,23,0.2); /* Усиленная тень */
+  position: relative; /* Относительное позиционирование */
+  font-family: inherit; /* Наследование шрифта */
+}
+
+/* Кнопка закрытия модального окна */
+.modal-close {
+  position: absolute; /* Абсолютное позиционирование */
+  right: 10px; /* Отступ справа */
+  top: 8px; /* Отступ сверху */
+  border: none; /* Без рамки */
+  background: none; /* Без фона */
+  font-size: 28px; /* Размер иконки */
+  line-height: 1; /* Высота строки */
+  cursor: pointer; /* Указатель мыши */
+  color: #444; /* Тёмно-серый цвет */
+}
+
+/* Альтернативная кнопка закрытия */
+.close {
+  color: #aaa; /* Серый цвет */
+  float: right; /* Размещение справа */
+  font-size: 28px; /* Размер иконки */
+  font-weight: bold; /* Жирный шрифт */
+  cursor: pointer; /* Указатель мыши */
+}
+
+/* Эффект наведения на кнопку закрытия */
+.close:hover {
+  color: black; /* Чёрный цвет */
+}
+
+/* Заголовок в модальном окне (h2) */
+.modal-content h2 {
+  margin-top: 0; /* Без отступа сверху */
+  font-family: Arial, sans-serif; /* Шрифт Arial */
+}
+
+/* Заголовок в модальном окне (h3) */
+.modal-content h3 {
+  margin-top: 0; /* Без отступа сверху */
+  margin-bottom: 12px; /* Отступ снизу */
+  font-size: 20px; /* Размер шрифта */
+}
+
+/* Метки в модальном окне */
+.modal-content label {
+  display: block; /* Блочное отображение */
+  margin-bottom: 6px; /* Отступ снизу */
+  font-weight: 600; /* Средне-жирный шрифт */
+  font-size: 14px; /* Размер шрифта */
+}
+
+/* Поле ввода пароля в модальном окне */
+.modal-content input[type="password"] {
+  width: 100%; /* Полная ширина */
+  padding: 10px; /* Внутренние отступы */
+  border-radius: 8px; /* Скругление углов */
+  border: 1px solid #ddd; /* Серая рамка */
+  box-sizing: border-box; /* Включает padding и border */
+  margin-bottom: 12px; /* Отступ снизу */
+  font-size: 15px; /* Размер шрифта */
+}
+
+/* Общие поля ввода в модальном окне */
+.modal-content input {
+  width: 100%; /* Полная ширина */
+  padding: 10px; /* Внутренние отступы */
+  margin: 10px 0; /* Отступы сверху/снизу */
+  border-radius: 5px; /* Скругление углов */
+  border: 1px solid #ccc; /* Серая рамка */
+}
+
+/* Кнопки в модальном окне */
+.modal-content button {
+  background: #007BFF; /* Синий фон */
+  color: white; /* Белый текст */
+  padding: 10px; /* Внутренние отступы */
+  width: 100%; /* Полная ширина */
+  border: none; /* Без рамки */
+  border-radius: 5px; /* Скругление углов */
+  cursor: pointer; /* Указатель мыши */
+  font-size: 16px; /* Размер шрифта */
+}
+
+/* Эффект наведения на кнопки в модальном окне */
+.modal-content button:hover {
+  background: #0056b3; /* Тёмно-синий фон */
+}
+
+/* Контейнер действий в модальном окне */
+.modal-actions {
+  display: flex; /* Гибкое отображение */
+  gap: 10px; /* Расстояние между кнопками */
+  justify-content: flex-end; /* Выравнивание справа */
+}
+
+/* Кнопка действия в модальном окне */
+.btn {
+  background: #2a6df4; /* Синий фон */
+  color: #fff; /* Белый текст */
+  border: none; /* Без рамки */
+  padding: 8px 14px; /* Внутренние отступы */
+  border-radius: 8px; /* Скругление углов */
+  cursor: pointer; /* Указатель мыши */
+  font-weight: 600; /* Средне-жирный шрифт */
+}
+
+/* Прозрачная кнопка */
+.btn-ghost {
+  background: transparent; /* Прозрачный фон */
+  border: 1px solid #ccc; /* Серая рамка */
+  color: #333; /* Тёмно-серый текст */
+}
+
+/* Сообщение об ошибке входа */
+.login-error {
+  color: #b00020; /* Красный цвет */
+  margin-top: 10px; /* Отступ сверху */
+  min-height: 1.2em; /* Минимальная высота для стабильности */
+}
+
+/* Footer */
+.footer {
+  background: var(--dark); /* Тёмно-синий фон */
+  color: #fff; /* Белый текст */
+  padding: 24px 0; /* Отступы сверху/снизу */
+  margin-top: 30px; /* Отступ сверху */
+}
+
+/* Внутренний контейнер футера */
+.footer-inner {
+  display: flex; /* Гибкое отображение */
+  justify-content: space-between; /* Элементы по краям */
+  align-items: center; /* Выравнивание по центру */
+  gap: 12px; /* Расстояние между элементами */
+  max-width: 1000px; /* Максимальная ширина */
+  margin: 0 auto; /* Центрирование */
+  padding: 0 20px; /* Боковые отступы */
+}
+
+/* Контейнер логотипа и текста компании */
+.footer-company {
+  display: flex; /* Гибкое отображение */
+  align-items: center; /* Выравнивание по центру */
+  gap: 10px; /* Расстояние между элементами */
+}
+
+/* Логотип компании в футере */
+.footer-company-logo {
+  height: 90px; /* Высота логотипа */
+  border-radius: 6px; /* Скругление углов */
+}
+
+/* Адаптивные стили */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr; /* Одна колонка для полей формы */
+  }
+  .site-nav {
+    display: none; /* Скрытие навигации */
+  }
+}

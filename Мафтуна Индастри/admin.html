@@ -1,0 +1,85 @@
+<!doctype html> 
+<html lang="ru">
+   <head>
+     <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Админ - Мафтуна Индастри</title> 
+      <link rel="icon" href="favicon.svg" type="image/svg+xml"> <link rel="icon" href="favicon.png" sizes="any">
+      <link rel="stylesheet" href="admin-styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+      </head> 
+      <body> 
+        <header class="site-header"> <div class="container header-inner"> 
+        <a class="logo" href="index.html"> 
+          <span class="logo-mark"><img src="img/logo.png" alt="Логотип"></span> 
+        </a> 
+        <nav class="site-nav"> 
+           <a href="index.html">Главная</a>
+           <a href="about.html">О нас</a> <a href="services.html">Услуги</a> 
+           <a href="contacts.html">Контакты</a> <a href="projects.html">Проекты</a> 
+           <a href="news.html">Новости</a> 
+          </nav> 
+        </div> 
+      </header> 
+      <main class="container content admin-page"> <h1>Админ-панель</h1> 
+        
+        <!-- Контакты --> 
+         <section class="admin-section"> <h2><i class="fa-solid fa-address-book"></i> Контакты</h2> 
+          <div class="form-grid"> <label>Адрес<input id="admin-address" placeholder="Душанбе, ул. ..."></label> 
+            <label>Телефон<input id="admin-phone" placeholder="+992..."></label> 
+            <label>Email<input id="admin-email" placeholder="info@..."></label> 
+            <label>Telegram<input id="admin-tg" placeholder="https://t.me/..."></label>
+            <label>WhatsApp<input id="admin-wa" placeholder="https://wa.me/..."></label>
+            <label>Instagram<input id="admin-ig" placeholder="https://instagram.com/..."></label>
+             <label>VK<input id="admin-vk" placeholder="https://vk/..."></label>
+            <label>odnoklassniki<input id="admin-ok" placeholder="https://ok.ru/..."></label>
+            </div> <button onclick="saveContacts()"><i class="fa-solid fa-floppy-disk"></i> Сохранить контакты</button> 
+          </section>
+
+           
+             <!-- Новости -->
+          <section class="admin-section">
+            <h2><i class="fa-solid fa-newspaper"></i> Новости</h2>
+            <label>Язык
+              <select id="admin-news-lang">
+                <option value="ru">RU</option>
+                <option value="en">EN</option>
+              </select>
+            </label>
+            <label>Заголовок<input id="admin-news-title"></label>
+            <label>Текст<textarea id="admin-news-content"></textarea></label>
+  
+  
+              <label>Изображение<input type="file" id="admin-news-image" accept="image/*"></label>
+                <button onclick="addNews()"><i class="fa-solid fa-plus"></i> Добавить новость</button>
+              <div id="admin-news-list" class="admin-list"></div>
+              </section>
+
+            <!-- Проделанная работа --> 
+             <section class="admin-section"> 
+              <h2><i class="fa-solid fa-briefcase"></i> Проделанная работа</h2> 
+              <label>Язык <select id="admin-project-lang"> <option value="ru">RU</option> <option value="en">EN</option> </select> </label> 
+              <label>Описание<input id="admin-project-desc"></label> 
+              <label>Ссылка на изображение<input id="admin-project-img" placeholder="img/project1.jpg или https://..."></label> <button onclick="addProject()">
+              <i class="fa-solid fa-plus"></i> Добавить проект</button> 
+              <div id="admin-projects-list" class="admin-list"></div> </section> 
+              
+              <!-- Сброс --> 
+               <section class="admin-section danger-zone"> <h2>
+                <i class="fa-solid fa-triangle-exclamation"></i> Сброс</h2> 
+                <p>Будьте осторожны — удалит все сохранённые данные.</p> 
+                <button onclick="resetAll()" class="danger-btn"><i class="fa-solid fa-trash"></i> Сбросить всё</button> </section> 
+              </main> 
+              <footer class="footer"> 
+                <div class="footer-inner"> 
+                  <div><strong>Мафтуна Индастри</strong>
+                    <div>Строительство дорог и мостов</div></div> 
+                    <div class="footer-company"> <img src="img/farzin.jpg" alt="Farzin Logo" class="footer-company-logo"> 
+                      <span class="footer-company-text">Данный веб-сайт создан Farzin technologies</span> </div>
+                      <div style="opacity:0.9">© <span id="curr-year"></span> Мафтуна Индастри. Все права защищены.</div> 
+                    </div>
+                     </footer> 
+  <script src="script.js"></script>
+  <script src="admin.js"></script> 
+  <script> document.getElementById("curr-year").textContent = new Date().getFullYear(); </script> 
+</body> 
+</html>
